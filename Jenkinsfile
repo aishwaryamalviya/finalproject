@@ -13,18 +13,18 @@ pipeline {
         stage('Compile and Clean') { 
             steps {
 
-                sh "mvn -f clean compile"
+                sh "mvn clean compile"
             }
         }
         stage('deploy') { 
             steps {
-                sh "mvn -f package"
+                sh "mvn package"
             }
         }
         stage('SonarQube analysis')  {
             steps {
                  withSonarQubeEnv('sonarqube-8.9.6') {
-                   sh 'mvn -f my-app/pom.xml sonar:sonar'
+                   sh 'mvn sonar:sonar'
                  }
            }
         }
