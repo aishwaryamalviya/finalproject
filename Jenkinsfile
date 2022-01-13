@@ -13,17 +13,12 @@ pipeline {
         stage('Compile and Clean') { 
             steps {
 
-                sh "mvn -f my-app/pom.xml clean compile"
+                sh "mvn -f clean compile"
             }
         }
         stage('deploy') { 
             steps {
-                sh "mvn -f my-app/pom.xml package"
-            }
-        }
-         stage('Archving') { 
-            steps {
-                 archiveArtifacts '**/target/*.jar'
+                sh "mvn -f package"
             }
         }
         stage('SonarQube analysis')  {
