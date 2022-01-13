@@ -1,0 +1,9 @@
+resource_group_name     = "aks_terraform_rg"
+location                = "East US"
+cluster_name            = "terraform-aks"
+kubernetes_version      = "1.21.7"
+system_node_count       = 1
+node_resource_group     = "aks_terraform_resources_rg"
+storage_account_name    = "aishdatastorage"
+acr_name                = "aishacr"
+storage_container_name  = "storagecontainer" 
